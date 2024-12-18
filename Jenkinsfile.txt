@@ -37,17 +37,17 @@ pipeline {
 		//Code ends for stage Unit Test
 
 		//Code starts for stage Code Analysis
-		stage('Code Analysis') {
-            steps {
-			 script {
-          scannerHome = tool 'sonar-scanner'
-        }
-				withSonarQubeEnv('My SonarQube Server')
-				{
-				sh "${scannerHome}/bin/sonar-scanner"
-				}
-			}
-		}
+	//	stage('Code Analysis') {
+    //        steps {
+			// script {
+        //  scannerHome = tool 'sonar-scanner'
+        //}
+				//withSonarQubeEnv('My SonarQube Server')
+				//{
+			//	sh "${scannerHome}/bin/sonar-scanner"
+				//}
+			//}
+		//}
 
     //Code starts for stage Code Coverage
 	stage('Code Coverage') {
@@ -91,7 +91,7 @@ pipeline {
 		stage('API Test') {
             steps {
 				//Change git url below as per your forked github repository URL
-				git url: 'https://github.com/umangsaltuniv/EMAPITests-ex.git'
+				git url: 'https://github.com/edwin15r/EMAPITests-ex.git'
             	sh 'mvn -Dtest=ExpenseManagerAPITest test'
             }
         }
